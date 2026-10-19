@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Ejemplo aprenderaprogramar.com</title>
+    <meta charset="utf-8">
+
+    <style type="text/css">
+        body {
+            margin-left: 30px;
+            font-family: sans-serif;
+        }
+
+        .estiloForm {
+            background-color: #f3f3f3;
+            border: solid 2px black;
+            margin-left: 20px;
+            width: 330px;
+            padding: 10px;
+        }
+
+        .estiloForm label {
+            display: block;
+            width: 120px;
+            float: left;
+            text-align: right;
+            margin-bottom: 35px;
+            padding-right: 20px;
+        }
+
+        br {
+            clear: left;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            margin: 25px 5px 10px 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            let arrayDivs = [];
+            let divs = document.querySelectorAll('div');
+
+            let arrayNodos = Array.from(divs);
+
+
+            console.log(arrayNodos);
+
+            for (let i = 0; i < divs.length; i++) {
+                arrayDivs.unshift(divs[i]);
+            }
+            console.log(arrayDivs);
+
+            arrayNodos.forEach((element) => {
+                element.style.backgroundColor = "red";
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h2>La clase es de todos</h2>
+    <h3>Ejemplos JavaScript</h3>
+    <div class="estiloForm">
+        <form name="formularioContacto" method="get" action="#">
+            <label>Tratamiento</label>
+            <input type="radio" name="tratamiento" id="tratarSr" value="Sr." />Sr.
+            <input type="radio" name="tratamiento" id="tratarSra" value="Sra." />Sra.<br />
+
+            <label>Nombre</label>
+            <input id="nombre" name="nombre" type="text" /><br />
+
+            <label>Apellidos</label>
+            <input id="apellidos" name="apellidos" type="text" /><br />
+
+            <label>Dirección</label>
+            <input id="direccion1" name="direccion1" type="text" /><br />
+
+            <label>Ciudad</label>
+            <select id="ciudad" name="ciudad">
+                <option value="">Elija opción</option>
+                <option value="Mexico">México D.F. (MX)</option>
+                <option value="Madrid">Madrid (ES)</option>
+                <option value="Santiago">Santiago (CL)</option>
+            </select><br />
+
+            <label>Preferencias</label>
+            <input name="Libros" type="checkbox" />Libros
+            <input name="Peliculas" type="checkbox" />Películas
+
+            <input type="submit" value="Enviar" /> 
+            <input type="reset" value="Cancelar" />
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+alert("Hola mundo soy js y estoy en fichero externo");
