@@ -1,0 +1,157 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101820;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor {
+    width: min(94vw, 620px);
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vh, 2.5rem);
+    color: #62e879;
+    letter-spacing: 6px;
+}
+
+.subtitulo {
+    color: #aab7c4;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.informacion {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.95rem;
+    padding: 5px 0;
+}
+
+.informacion strong {
+    color: #62e879;
+}
+
+.tablero-contenedor {
+    position: relative;
+    width: min(100%, calc(100dvh - 190px));
+    aspect-ratio: 1 / 1;
+    flex-shrink: 1;
+    min-height: 0;
+    border: 2px solid #62e879;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #18252e;
+    line-height: 0;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mensaje {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    text-align: center;
+    line-height: 1.4;
+    background: rgba(16, 24, 32, 0.88);
+}
+
+.mensaje h2 {
+    color: #62e879;
+    font-size: clamp(1.2rem, 3vh, 2rem);
+}
+
+.mensaje p {
+    color: #d0d8df;
+    font-size: 0.9rem;
+}
+
+.mensaje.oculto {
+    display: none;
+}
+
+button {
+    flex-shrink: 0;
+    margin-top: 4px;
+    padding: 9px 24px;
+    background: #62e879;
+    color: #101820;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #42c85a;
+}
+
+.instrucciones {
+    flex-shrink: 0;
+    text-align: center;
+    color: #aab7c4;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.instrucciones strong {
+    color: #ffffff;
+}
+
+@media (max-height: 600px) {
+    .contenedor {
+        gap: 4px;
+        padding: 5px 0;
+    }
+
+    .subtitulo {
+        display: none;
+    }
+
+    .tablero-contenedor {
+        width: min(65vw, calc(100dvh - 125px));
+    }
+
+    .instrucciones {
+        font-size: 0.7rem;
+    }
+
+    button {
+        padding: 6px 18px;
+    }
+}

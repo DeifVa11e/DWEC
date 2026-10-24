@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake - Listas enlazadas</title>
+    <link rel="stylesheet" href="Snake.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Snake</h1>
+        <p class="subtitulo">Implementando con listas enlazadas</p>
+
+        <div class="informacion">
+            <span>Puntuación: <strong id="puntuacion">0</strong></span>
+            <span>Record: <strong id="record">0</strong></span>
+        </div>
+
+        <div class="tablero-contenedor">
+            <canvas id="tablero" width="600" height="600"></canvas>
+
+            <div id="mensaje" class="mensaje">
+                <p>Preparate</p>
+                <p>pulsa W, A, S, D para empezar</p>
+            </div>
+        </div>
+
+        <button id="reiniciar">Nueva partida</button>
+
+        <div class="info">
+            <p>Espacio para pausar o continuar</p>
+        </div>
+    </main>
+    <script src="Snake.js"></script>
+</body>
+</html>

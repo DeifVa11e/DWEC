@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños</title>
+</head>
+<body>
+    <script>
+        let dia = prompt("Introduce el dia de tu cumpleaños:");
+        let mes = prompt("Introduce el mes de tu cumpleaños:");
+
+        let hoy = new Date();
+
+        let proximoCumple = new Date(hoy.getFullYear(), mes - 1, dia);
+        if (proximoCumple < hoy) {
+            proximoCumple.setFullYear(hoy.getFullYear() + 1);
+        }
+
+        let diferencia = proximoCumple - hoy;
+
+        let minutos = Math.floor(diferencia / (1000 * 60));
+        let horas = Math.floor(diferencia / (1000 * 60 * 60));
+        let semanas = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 7));
+        let meses = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 30.44));
+
+        console.log("Faltan para tu próximo cumpleaños:");
+        console.log(minutos + " minutos");
+        console.log(horas + " horas");
+        console.log(semanas + " semanas");
+        console.log(meses + " meses");
+    </script>
+</body>
+</html>

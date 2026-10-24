@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Variables de JavaScript:
+        //      1. Fuera de toda función, aunque lleve var será global
+        //      2. Dentro de una función, si lleva var es local y si no lo lleva será global
+        if (true) {
+            var true_global = 1; // Esta vble es considerada glonal, porqué está fuera de toda función, aunque lleve var
+        }
+
+        if (false) {
+            var false_global = 1; 
+        }
+
+        var sum = function() {
+            var local = 1; // Dentro de una función, si lleva var es local
+            is_it_local = 3; // dentro de una función, si no lleva var es global
+            console.log(true_global); 
+            // true_global es considerada global, por estar declarada fuera de toda función aunque esté dentro de una instrucción 
+            return true_global + local + is_it_local; 
+        }
+
+        alert("True global: " + true_global); // 1
+        alert("Falso global: " + false_global) // undefined
+        // alert("local: " + local) // ReferenceError: local is not defined
+        // alert("is it local: " + is_it_local); // ReferenceError: is_it_local is not defined
+        alert(sum());
+        document.write(sum()); // Escribe en la página la función 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

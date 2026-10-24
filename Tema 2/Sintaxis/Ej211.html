@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio A.2.11 - Recorrer elementos p</title>
+</head>
+<body>
+    <p>Primer párrafo de contenido.</p>
+    <p>Segundo párrafo con más texto.</p>
+    <p>Tercer párrafo para probar el bucle.</p>
+    <p>Cuarto párrafo final.</p>
+    
+    <button onclick="verBucle()">Mostrar párrafos en la consola</button>
+
+    <script>
+        function verBucle() {
+            var etiquetas = document.getElementsByTagName('p');
+            var contador = 0;
+            while (contador < etiquetas.length) {
+                console.log(etiquetas[contador].innerHTML);
+                contador++;
+            }
+        }
+    </script>
+
+</body>
+</html>
