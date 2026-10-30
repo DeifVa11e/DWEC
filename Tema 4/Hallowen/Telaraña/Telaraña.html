@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telaraña Cayendo</title>
+    <style>
+        /* Fondo oscuro para que resalte la telaraña y el hilo */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #1a1a1a; 
+        }
+
+        /* Estilo del hilo que sujeta la telaraña */
+        #hilo {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.6); /* Blanco semitransparente */
+            transform: translateX(-50%);
+        }
+
+        /* Estilo del emoji de la telaraña */
+        #telarana {
+            position: absolute;
+            top: -100px; /* Empieza fuera de la pantalla */
+            left: 50%;
+            font-size: 80px; 
+            transform: translateX(-50%);
+            /* Ajuste para centrar el hilo en la parte superior del emoji */
+            margin-top: -10px; 
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // 1. Crear los elementos en el documento
+    const hilo = document.createElement('div');
+    hilo.id = 'hilo';
+    document.body.appendChild(hilo);
+
+    const telarana = document.createElement('div');
+    telarana.id = 'telarana';
+    telarana.innerHTML = '🕸️'; 
+    document.body.appendChild(telarana);
+
+    // 2. Configurar la animación
+    let posicionY = -100; // Posición inicial en el eje Y
+    const velocidad = 2;  // Píxeles que baja por cada fotograma
+
+    function caer() {
+        // Sumar distancia
+        posicionY += velocidad;
+
+        // Actualizar la posición de la telaraña y la altura del hilo
+        // +30 para que conecte bien con el centro del emoji
+        telarana.style.top = posicionY + "px";
+        hilo.style.hei = (posicionY + 30) + "px";
+
+        // Si la telaraña sale por la parte inferior de la pantalla, vuelve arriba
+        if (posicionY > window.innerHeight) posicionY = -100;
+
+        // Llamar a la función de nuevo para el siguiente fotograma
+        requestAnimationFrame(caer);
+    }
+
+    // 3. Iniciar la animación
+    caer();
+</script>
+
+</body>
+</html>

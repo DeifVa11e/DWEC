@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Desplazar ventana</title>
+</head>
+<body>
+
+    <h1>Control de ventanas</h1>
+
+    <button onclick="abrirVentana()">Abrir ventana</button>
+    <button onclick="desplazarVentana()">Desplazar ventana</button>
+
+    <p id="coordenadas"></p>
+
+    <script>
+        let nuevaVentana;
+
+        // Abrir una ventana vacía de 300x200 píxeles
+        function abrirVentana() {
+            nuevaVentana = window.open(
+                "",
+                "_blank",
+                "width=300,height=200"
+            );
+        }
+
+        // Desplazar la ventana a una posición aleatoria
+        function desplazarVentana() {
+            if (nuevaVentana && !nuevaVentana.closed) {
+
+                // Generar coordenadas aleatorias
+                let x = Math.floor(Math.random() * 800);
+                let y = Math.floor(Math.random() * 600);
+
+                // Desplazar la ventana
+                nuevaVentana.moveTo(x, y);
+
+                // Imprimir las nuevas coordenadas
+                document.getElementById("coordenadas").innerHTML =
+                    "Nueva coordenada X: " + x +
+                    "<br>Nueva coordenada Y: " + y;
+
+                console.log("X: " + x + ", Y: " + y);
+            } else {
+                alert("Primero debes abrir la ventana.");
+            }
+        }
+    </script>
+
+</body>
+</html>

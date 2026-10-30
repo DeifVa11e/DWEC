@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="elementosTag">
+        <h3>Modificación tamaño texto</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Enim qui praesentium veritatis deserunt esse eveniet iste minima! 
+            Rerum, repudiandae harum obcaecati tempora fugiat, laboriosam 
+            quas delectus pariatur dicta tempore perspiciatis.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Enim qui praesentium veritatis deserunt esse eveniet iste minima! 
+            Rerum, repudiandae harum obcaecati tempora fugiat, laboriosam 
+            quas delectus pariatur dicta tempore perspiciatis.
+        </p>
+    </div>
+    <div>
+        <span>Seleccionar tamaño:</span>
+        <select id="cboSize">
+            <option value="10">Small</option>
+            <option value="12">Medium</option>
+            <option value="14">Large</option>
+        </select>
+        <button id="actualizar" onclick="modificarSize();">Cambiar</button>
+
+        <span>Seleccionar color:</span>
+        <select id="cboColor">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        <button id="actualizar" onclick="modificarColor();">Cambiar</button>
+    </div>
+
+    <script>
+        function modificarSize() {
+            var parrafos = document.getElementsByTagName('p');
+            var size = document.getElementById('cboSize').value;
+            for (var i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.fontSize = size;
+            }
+        }
+
+        function modificarColor() {
+            var parrafos = document.getElementsByTagName('p');
+            var color = document.getElementById('cboColor').value;
+            for (var i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.color = color;
+            }
+        }
+    </script>
+</body>
+</html>

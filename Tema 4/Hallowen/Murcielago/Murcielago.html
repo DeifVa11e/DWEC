@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bat</title>
+</head>
+<script>
+	window.onload = function () {
+		const bat = document.getElementById("bat");
+		var x = 200;
+		var y = 100;
+		var vx = 4;
+		var vy = 3;
+
+		document.getElementById('btnRandom').onclick = function() {
+			vx = Math.random() * 6 + 400;
+			vy = Math.random() * 6 + 400;
+			if (Math.random() < 0.5) vx = -vx;
+			if (Math.random() < 0.5) vy = -vy;
+		}
+
+		document.getElementById('btnVertical').onclick = function() {
+			vx = 0;
+			vy = 50;
+		}
+
+		document.getElementById('btnHorizontal').onclick = function() {
+			vx = 50;
+			vy = 0;
+		}
+
+		setInterval(function() {
+			x += vx;
+			y += vy;
+
+			var maxX = window.innerWidth - bat.offsetWidth;
+			var maxY = window.innerHeight - bat.offsetHeight;
+
+			if (x < 0 || x > maxX) vx = -vx; // rebota en los lados
+			if (y < 0 || y > maxY) vy = -vy; // rebota arriba/abajo
+			bat.style.left = x + "px";
+			bat.style.top = y + "px";
+		}, 50);
+	};
+</script>
+<body>
+	<img style="position:absolute; width:80px;" id="bat" src="Murcielago.jpg">
+	<input type="button" id="btnRandom" value="Random" onclick="buttonStart(moverBat)">
+	<input type="button" id="btnHorizontal" value="Horizontal" onclick="buttonStart(moverHori)">
+	<input type="button" id="btnVertical" value="Vertical" onclick="buttonStart(moverVerti)">
+</body>
+</html>

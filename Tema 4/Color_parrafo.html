@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">P1: </p>
+    <p id="p2">P2: </p>
+    <p id="p3">P3: </p>
+
+    <input type="text" id="color" placeholder="Escribe un color">
+    <button onclick="cambiarColor()">Cambiar color</button>
+
+    <script>
+        function cambiarColor() {
+            let color = document.getElementById("color").value;
+            let parrafos = document.getElementsByTagName('p');
+
+            for (let i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.color = color;
+                parrafos[i].innerHTML += 'Párrafo ' + i;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function verAtributos() {
+            // alert(document.images[0].src); // Colecciones
+            alert(document.getElementById('imgIzquierda').src); // Métodos de busqueda
+        }
+    </script>
+</head>
+<body>
+    <img src="img1.jpg" alt="Imagen ejemlo Izquierda" id="imgIzquierda"></img>
+    <br>
+    <img src="img2.jpg" alt="Imagen ejemlo Derecha" id="imgDerecha"></img>
+    <br><hr />
+    <button type="button" onclick="verAtributos();">Ver scr de la primera imagen</button>
+</body>
+</html>

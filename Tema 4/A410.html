@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var total = 0;
+        function addNuevoItem () {
+            total++;
+            document.getElementById('listaItems').innerHTML += '<li>Elemento' + total + '</li>';
+        }
+
+        function copiarLista() {
+            var original = document.getElementById('listaItems');
+            var items = original.getElementsByTagName('li');
+            if (items.length === 0) return;
+
+            var copia = document.getElementById('listaCopia');
+            if (!copia) {
+                copia = document.createElement('ul');
+                copia.id = 'listaCopia';
+                original.insertAdjacentElement('afterend', copia);
+            }
+
+            copia.innerHTML = '';
+            copia.appendChild(items[0].cloneNode(true));
+            if (items.length > 1) {
+                copia.appendChild(items[items.length - 1].cloneNode(true));
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btnParar" onclick="addNuevoItem();">Agregar nuevo elemento</button>
+    <button id="btnSalir" onclick="copiarLista();">Copiar lista al final</button>
+    <ul id="listaItems"></ul>
+</body>
+</html>

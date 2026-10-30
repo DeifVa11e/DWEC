@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <h2>Métodos del objeto Window</h2>
+    <input type="text" id="reloj" disabled>
+    <input type="text" id="txtProgreso" disabled>
+    <div id="progreso" style="width:10px;height:30px;background-color:green;margin-top:10px">Progreso</div>
+    <button id="btnParar">Stop</button>
+    <button id="btnReanudar">Reanudar</button>
+    <button id="btnStart">Start</button>
+
+    <script type="text/javascript">
+        var idIntervalo = setInterval(intervaloReloj, 500);
+
+        function intervaloReloj() {
+
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("reloj").value = t;
+            document.getElementById("progreso").style.width = document.getElementById("progreso").clientWidth + 15 + "px";
+            console.log(document.getElementById("progreso").clientWidth);
+            console.log(document.getElementById("progreso").style.width);
+            document.getElementById("txtProgreso").value = document.getElementById("progreso").style.width;
+            if (document.getElementById("progreso").clientWidth > 500) {
+                document.getElementById("progreso").style.width = 0;
+            }
+        }
+
+        const btnParar = document.getElementById("btnParar");
+        const btnReanudar = document.getElementById("btnReanudar");
+        const btnStart = document.getElementById("btnStart");
+
+        btnParar.addEventListener("click", () => {
+            window.clearInterval(idIntervalo);
+            btnReanudar.addEventListener("click", () => {
+                idIntervalo = setInterval(intervaloReloj, 500);
+            });
+        });
+
+        btnStart.addEventListener("click", () => {
+            document.getElementById("progreso").style.width = 0;
+            idIntervalo = setInterval(intervaloReloj, 500);
+        });
+    </script>
+</body>
+
+</html>

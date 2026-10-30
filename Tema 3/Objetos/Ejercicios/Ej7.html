@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        // variable que imprimirá el objeto
+        var txt = " ";
+        // Creamos el objeto
+        var person = {
+            fname: "Jhon",
+            lnmae: "Doe",
+            age: 25
+        };
+        // se añade que su nacionalidad es inglesa
+        person.nationality = "English";
+        // variable que recorre el objeto
+        var x;
+        // bucle for...in
+        for (x in person) {
+            txt += person[x] + " ";
+        }
+        // lo ponemos en la etiqueta y se vuelve a añadir al final la nacionalidad
+        document.getElementById("demo").innerHTML = txt + person.nationality;
+    </script>
+</body>
+</html>

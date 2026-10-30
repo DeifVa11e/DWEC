@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Rabbit Walking</title>
+</head>
+<body>
+	<img id="rabbit" style="position:absolute;" src="rabbit-skip.gif">
+
+	<script>
+		window.onload = function () {
+			const rabbit = document.getElementById("rabbit");
+
+			function mover() {
+				const maxX = window.innerWidth - rabbit.offsetWidth;
+				const maxY = window.innerHeight - rabbit.offsetHeight;
+
+				rabbit.style.left = Math.random() * maxX + "px";
+				rabbit.style.top = Math.random() * maxY + "px";
+			}
+
+			mover();
+			setInterval(mover, 1000);
+		};
+	</script>
+</body>
+</html>
